@@ -1,5 +1,4 @@
 import discord
-import nextcord
 import chess
 from discord.ext import commands
 
@@ -9,19 +8,34 @@ class ChessHandler():
 
         if fen != None: self.board.set_board_fen(fen)
 
+class Select(discord.ui.Select):
+    def __init__(self):
+        options = [
+            discord.SelectOption(lable="test option 1", description="test"),
+            discord.SelectOption(lable="test option 2", description="test"),
+            discord.SelectOption(lable="test option 3", description="test"),
+            discord.SelectOption(lable="test option 4", description="test")
+        ]
+        super().__init__(placeholder="Select an option", max_values=1, min_values=1, options=options)
+
+class SelectView(discord.ui.View):
+    def __init__(self, *, timeout = 180):
+        super().__init__(timeout=timeout)
+        self.add_item(Select())
+
 class Ping(commands.Cog):
     def __init__(self, client):
         self.client = client
     
     @commands.slash_command()
-    async def start_match(self, ctx):
+    async def test_dropdown(self, ctx):
+        await ctx.send("Test", view=Select())
         # create board
 
         # send embed with move choices
 
         # when a move is selected by a player
 
-        pass
 
     @commands.command()
     async def embed_test(self, ctx):

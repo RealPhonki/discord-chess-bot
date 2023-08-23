@@ -1,12 +1,11 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
+from discord.ext import tasks
 from itertools import cycle
 import logging
 import platform
 import os
-import sys
 import asyncio
-import json
 
 TOKEN = "MTE0MzcwOTU3NDY4ODQxOTk0MA.GqZCjC.mWGAQNzGVPVO9zeifQ-nVyNmHZf_3LRk10ZJ30"
 client = commands.Bot(command_prefix="/", intents=discord.Intents.all())
