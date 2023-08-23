@@ -5,12 +5,14 @@ class Ping(commands.Cog):
     def __init__(self, client):
         self.client = client
     
-    @commands.command()
-    async def ping(self, ctx):
+    @commands.slash_command()
+    async def ching(self, ctx):
+        await ctx.tree.sync()
+
         bot_latency = round(self.client.latency * 1000)
 
         embed_message = discord.Embed(
-            title = f"pong : {bot_latency} ms"
+            title = f"chong : {bot_latency} ms"
         )
 
         embed_message.set_author(

@@ -1,0 +1,41 @@
+import discord
+from discord.ext import commands
+
+class Moderation(commands.Cog):
+    def __init__(self, client):
+        self.client = client
+    
+    @commands.command()
+    @commands.has_permissions(manage_messages=True)
+    async def clean(self, ctx, count: int):
+        await ctx.channel.purge(limit=count)
+
+        embed_message = discord.Embed(
+            title = f"purged {count} message(s)"
+        )
+
+        embed_message.set_author(
+            name = f'Requested by {ctx.author.name}',
+            icon_url = ctx.author.avatar
+        )
+
+        await ctx.send(embed = embed_message)
+    
+    @commands.command()
+    @commands.has_permissions(kick_members=True)
+    async def kick(self, ctx, member: discord.Member, *, reason):
+        await ctx.guild.kick(member)
+
+        embed_message = discord.Embed()
+        embed_message.add_field(name="Kicked:", value=f'{member.name} has been kicked out of the server', inline=False)
+        embed_message.add_field(name="Reason:", value=reason, inline=False)
+
+        embed_message.set_author(
+            name = f'Requested by {ctx.author.name}',
+            icon_url = ctx.author.avatar
+        )
+
+        await ctx.send(embed = embed_message)
+
+async def setup(client):
+    await client.add_cog(Moderation(client))
