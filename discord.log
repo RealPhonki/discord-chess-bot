@@ -1,8 +1,7 @@
-[2023-08-23 07:07:08] [INFO    ] discord_bot: Loaded extension 'moderation'
-[2023-08-23 07:07:08] [ERROR   ] discord_bot: Failed to load extension ping
-ExtensionFailed: Extension 'cogs.ping' raised an error: AttributeError: module 'discord.ext.commands' has no attribute 'slash_command'
-[2023-08-23 07:07:11] [INFO    ] discord_bot: Logged in as Phong Bot 9001
-[2023-08-23 07:07:11] [INFO    ] discord_bot: discord.py API version: 2.3.2
-[2023-08-23 07:07:11] [INFO    ] discord_bot: Python version: 3.9.6
-[2023-08-23 07:07:11] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
-[2023-08-23 07:07:11] [INFO    ] discord_bot: -------------------
+[2023-08-23 11:38:57] [INFO    ] discord_bot: Loaded extension 'chess'
+[2023-08-23 11:38:57] [INFO    ] discord_bot: Loaded extension 'ping'
+[2023-08-23 11:38:59] [INFO    ] discord_bot: Logged in as Phong Bot 9001
+[2023-08-23 11:38:59] [INFO    ] discord_bot: discord.py API version: 2.3.2
+[2023-08-23 11:38:59] [INFO    ] discord_bot: Python version: 3.9.6
+[2023-08-23 11:38:59] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
+[2023-08-23 11:38:59] [INFO    ] discord_bot: -------------------

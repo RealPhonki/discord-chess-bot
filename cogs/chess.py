@@ -11,10 +11,10 @@ class ChessHandler():
 class Select(discord.ui.Select):
     def __init__(self):
         options = [
-            discord.SelectOption(lable="test option 1", description="test"),
-            discord.SelectOption(lable="test option 2", description="test"),
-            discord.SelectOption(lable="test option 3", description="test"),
-            discord.SelectOption(lable="test option 4", description="test")
+            discord.SelectOption(label="test option 1", description="test"),
+            discord.SelectOption(label="test option 2", description="test"),
+            discord.SelectOption(label="test option 3", description="test"),
+            discord.SelectOption(label="test option 4", description="test")
         ]
         super().__init__(placeholder="Select an option", max_values=1, min_values=1, options=options)
 
@@ -23,36 +23,18 @@ class SelectView(discord.ui.View):
         super().__init__(timeout=timeout)
         self.add_item(Select())
 
-class Ping(commands.Cog):
+class Chess(commands.Cog):
     def __init__(self, client):
         self.client = client
     
-    @commands.slash_command()
+    @commands.command()
     async def test_dropdown(self, ctx):
-        await ctx.send("Test", view=Select())
+        await ctx.send("Test", view=SelectView())
         # create board
 
         # send embed with move choices
 
         # when a move is selected by a player
 
-
-    @commands.command()
-    async def embed_test(self, ctx):
-
-        embed_message = discord.Embed(
-            title = "Tile of Embed",
-            description = "Description Test",
-            color = discord.Color.gold()      # ctx.author.color
-        )
-
-        embed_message.set_author(name = f'Requested by {ctx.author.name}', icon_url = ctx.author.avatar)
-        embed_message.set_thumbnail(url = ctx.guild.icon)
-        embed_message.set_image(url = ctx.guild.icon)
-        embed_message.add_field(name = "field name", value = "field value", inline = False)
-        embed_message.set_footer(text = "This is a footer", icon_url = ctx.author.avatar)
-
-        await ctx.send(embed = embed_message)
-
 async def setup(client):
-    await client.add_cog(Ping(client))
+    await client.add_cog(Chess(client))

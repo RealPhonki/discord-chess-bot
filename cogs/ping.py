@@ -5,9 +5,8 @@ class Ping(commands.Cog):
     def __init__(self, client):
         self.client = client
     
-    @commands.slash_command()
+    @commands.command()
     async def ching(self, ctx):
-        await ctx.tree.sync()
 
         bot_latency = round(self.client.latency * 1000)
 
