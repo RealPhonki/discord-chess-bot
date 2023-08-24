@@ -1,7 +1,7 @@
-[2023-08-23 11:38:57] [INFO    ] discord_bot: Loaded extension 'chess'
-[2023-08-23 11:38:57] [INFO    ] discord_bot: Loaded extension 'ping'
-[2023-08-23 11:38:59] [INFO    ] discord_bot: Logged in as Phong Bot 9001
-[2023-08-23 11:38:59] [INFO    ] discord_bot: discord.py API version: 2.3.2
-[2023-08-23 11:38:59] [INFO    ] discord_bot: Python version: 3.9.6
-[2023-08-23 11:38:59] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
-[2023-08-23 11:38:59] [INFO    ] discord_bot: -------------------
+[2023-08-24 09:58:41] [INFO    ] discord_bot: Loaded extension 'chess'
+[2023-08-24 09:58:41] [INFO    ] discord_bot: Loaded extension 'ping'
+[2023-08-24 09:58:44] [INFO    ] discord_bot: Logged in as Phong Bot 9001
+[2023-08-24 09:58:44] [INFO    ] discord_bot: discord.py API version: 2.3.2
+[2023-08-24 09:58:44] [INFO    ] discord_bot: Python version: 3.9.6
+[2023-08-24 09:58:44] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
+[2023-08-24 09:58:44] [INFO    ] discord_bot: -------------------

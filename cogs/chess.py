@@ -2,12 +2,6 @@ import discord
 import chess
 from discord.ext import commands
 
-class ChessHandler():
-    def __init__(self, fen):
-        self.board = chess.Board()
-
-        if fen != None: self.board.set_board_fen(fen)
-
 class Select(discord.ui.Select):
     def __init__(self):
         options = [
@@ -18,6 +12,9 @@ class Select(discord.ui.Select):
         ]
         super().__init__(placeholder="Select an option", max_values=1, min_values=1, options=options)
 
+    async def callback(self, interaction: discord.Interaction):
+        await interaction.response.send_message(content = f"Selected option {self.values}", ephemeral = True)
+
 class SelectView(discord.ui.View):
     def __init__(self, *, timeout = 180):
         super().__init__(timeout=timeout)
@@ -27,6 +24,12 @@ class Chess(commands.Cog):
     def __init__(self, client):
         self.client = client
     
+    @commands.command()
+    async def start_match(self, ctx):
+        board = chess.Board()
+
+        await ctx.send(board)
+
     @commands.command()
     async def test_dropdown(self, ctx):
         await ctx.send("Test", view=SelectView())
