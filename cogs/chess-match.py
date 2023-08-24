@@ -1,6 +1,8 @@
 import discord
-import chess
 from discord.ext import commands
+import io
+
+from logic.chess_handler import ChessHandler
 
 class Select(discord.ui.Select):
     def __init__(self):
@@ -20,15 +22,25 @@ class SelectView(discord.ui.View):
         super().__init__(timeout=timeout)
         self.add_item(Select())
 
-class Chess(commands.Cog):
+class ChessMatch(commands.Cog):
     def __init__(self, client):
         self.client = client
+        self.chess_handler = ChessHandler()
     
     @commands.command()
-    async def start_match(self, ctx):
-        board = chess.Board()
+    async def display_board(self, ctx):
+        # get pillow image
+        image = self.chess_handler.checker_board
 
-        await ctx.send(board)
+        # save the image to BytesIO stream
+        image_stream = io.BytesIO()
+        image.save(image_stream, format = "PNG")
+        image_stream.seek(0) # move the stream cursor to the beginning
+
+        # generate discord file
+        discord_file = discord.File(image_stream, filename="board_img.png")
+        
+        await ctx.send(file=discord_file)
 
     @commands.command()
     async def test_dropdown(self, ctx):
@@ -40,4 +52,4 @@ class Chess(commands.Cog):
         # when a move is selected by a player
 
 async def setup(client):
-    await client.add_cog(Chess(client))
+    await client.add_cog(ChessMatch(client))
