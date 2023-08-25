@@ -1,7 +1,7 @@
-[2023-08-24 13:14:38] [INFO    ] discord_bot: Loaded extension 'chess-match'
-[2023-08-24 13:14:38] [INFO    ] discord_bot: Loaded extension 'ping'
-[2023-08-24 13:14:41] [INFO    ] discord_bot: Logged in as Phong Bot 9001
-[2023-08-24 13:14:41] [INFO    ] discord_bot: discord.py API version: 2.3.2
-[2023-08-24 13:14:41] [INFO    ] discord_bot: Python version: 3.9.6
-[2023-08-24 13:14:41] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
-[2023-08-24 13:14:41] [INFO    ] discord_bot: -------------------
+[2023-08-25 06:32:15] [INFO    ] discord_bot: Loaded extension 'chess-match'
+[2023-08-25 06:32:15] [INFO    ] discord_bot: Loaded extension 'ping'
+[2023-08-25 06:32:17] [INFO    ] discord_bot: Logged in as Phong Bot 9001
+[2023-08-25 06:32:17] [INFO    ] discord_bot: discord.py API version: 2.3.2
+[2023-08-25 06:32:17] [INFO    ] discord_bot: Python version: 3.9.6
+[2023-08-25 06:32:17] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
+[2023-08-25 06:32:17] [INFO    ] discord_bot: -------------------

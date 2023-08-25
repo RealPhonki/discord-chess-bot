@@ -1,0 +1,8 @@
+
+HEY U PIECE OF SHIT THATS BEEN PROCRASTINATING UR APUSH WORK YA U
+LOOK AT THIS SO THAT U CAN PROCRASTATE MORE
+
+1. Move the logging formatter to a seperate file for clarity
+2. Add a command to change the task loop
+3. Add comments to explain the cog loading code
+4. Get ur stupid versions done
