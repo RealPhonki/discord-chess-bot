@@ -7,36 +7,19 @@ class Ping(commands.Cog):
     
     @commands.command()
     async def ching(self, ctx):
-
+        # get bot latency from discord api
         bot_latency = round(self.client.latency * 1000)
 
-        embed_message = discord.Embed(
-            title = f"chong : {bot_latency} ms"
-        )
-
-        embed_message.set_author(
+        # create embed instance
+        embed_message = discord.Embed(title = f"chong : {bot_latency} ms")
+        embed_message.set_author( # set author of embed to the user who requested the command
             name = f'Requested by {ctx.author.name}',
             icon_url = ctx.author.avatar
         )
 
         await ctx.send(embed = embed_message)
 
-    @commands.command()
-    async def embed_test(self, ctx):
-
-        embed_message = discord.Embed(
-            title = "Tile of Embed",
-            description = "Description Test",
-            color = discord.Color.gold()      # ctx.author.color
-        )
-
-        embed_message.set_author(name = f'Requested by {ctx.author.name}', icon_url = ctx.author.avatar)
-        embed_message.set_thumbnail(url = ctx.guild.icon)
-        embed_message.set_image(url = ctx.guild.icon)
-        embed_message.add_field(name = "field name", value = "field value", inline = False)
-        embed_message.set_footer(text = "This is a footer", icon_url = ctx.author.avatar)
-
-        await ctx.send(embed = embed_message)
-
+# add cog extension to "client" (the bot)
+# NOTE: THIS CODE RUNS FROM THE DIRECTORY THAT "main.py" IS IN
 async def setup(client):
     await client.add_cog(Ping(client))

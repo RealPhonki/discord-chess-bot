@@ -1,6 +1,9 @@
 from PIL import Image, ImageDraw
 from functools import cached_property
 import chess
+import json
+import sys
+import os
 
 class ChessHandler():
     piece_images = {
@@ -19,16 +22,26 @@ class ChessHandler():
     }
     
     def __init__(self) -> None:
+        self.config = self.get_config
         self.board = chess.Board()
-        self.square_size = 100
+        self.square_size = self.config["square_size"]
         self.board_size = self.square_size * 8
-        self.board_color = [(238,238,210), (118,150,86)]
+        self.board_color = self.config["board_themes"]["theme_1"]
+
+    @ cached_property
+    def get_config(self) -> dict:
+        """ Load json data and return it"""
+        if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/chess_config.json"):
+            sys.exit("'config.json' not found! Please add it and try again.")
+        else:
+            with open(f"{os.path.realpath(os.path.dirname(__file__))}/chess_config.json") as file:
+                return json.load(file)
 
     # the cached property decorator means that it once it generates the return value it caches
     # it and sends it the next time the property is called
     @cached_property
     def checker_board(self) -> Image:
-        # Returns the raw .png data of the board without pieces
+        """ Returns the raw .png data of the board without pieces """
         image = Image.new("RGBA", (self.board_size, self.board_size), (255, 255, 255))
         draw = ImageDraw.Draw(image)
         for row in range(8):
@@ -41,6 +54,7 @@ class ChessHandler():
         return image
 
     def get_board_png(self) -> Image:
+        """ Returns the raw png data of the current board state"""
         # Returns the raw .png data of the board
         image = self.checker_board
         
@@ -59,15 +73,3 @@ class ChessHandler():
             image.paste(piece_image, position, piece_image)
         
         return image
-
-# svg loophole pseudo code
-# 
-# @cached_property
-# create_checkerboard():
-#   loop through and create checkerboard for each tile
-#   return generated image
-#
-# def generate_img
-#   create_checkerboard()
-#   go through pgn and add a piece for every position
-#   return img

@@ -2,7 +2,11 @@
 HEY U PIECE OF SHIT THATS BEEN PROCRASTINATING UR APUSH WORK YA U
 LOOK AT THIS SO THAT U CAN PROCRASTATE MORE
 
-1. Move the logging formatter to a seperate file for clarity
-2. Add a command to change the task loop
-3. Add comments to explain the cog loading code
-4. Get ur stupid versions done
+1. Hey aarav stop looking at this go back to sucking ur banana
+2. Move the logging formatter to a seperate file for clarity
+3. Add a command to change the task loop
+4. Add comments to explain the cog loading code
+5. Get ur stupid controls done
+6. Make a framework for dropdown menus
+7. Add perm limits on the commands
+8. Store special info in .json file
