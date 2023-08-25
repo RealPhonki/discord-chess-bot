@@ -1,8 +1,7 @@
-[2023-08-25 09:50:13] [ERROR   ] discord_bot: Failed to load extension chess-match
-ExtensionFailed: Extension 'cogs.chess-match' raised an error: FileNotFoundError: [Errno 2] No such file or directory: '/Users/phonghoang/Documents/VS Code/discord-chess-bot/logic/config.json'
-[2023-08-25 09:50:13] [INFO    ] discord_bot: Loaded extension 'ping'
-[2023-08-25 09:50:16] [INFO    ] discord_bot: Logged in as Phong Bot 9001
-[2023-08-25 09:50:16] [INFO    ] discord_bot: discord.py API version: 2.3.2
-[2023-08-25 09:50:16] [INFO    ] discord_bot: Python version: 3.9.6
-[2023-08-25 09:50:16] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
-[2023-08-25 09:50:16] [INFO    ] discord_bot: -------------------
+[2023-08-25 10:52:33] [INFO    ] discord_bot: Loaded extension 'chess_commands'
+[2023-08-25 10:52:33] [INFO    ] discord_bot: Loaded extension 'ping'
+[2023-08-25 10:52:36] [INFO    ] discord_bot: Logged in as Phong Bot 9001
+[2023-08-25 10:52:36] [INFO    ] discord_bot: discord.py API version: 2.3.2
+[2023-08-25 10:52:36] [INFO    ] discord_bot: Python version: 3.9.6
+[2023-08-25 10:52:36] [INFO    ] discord_bot: Running on: Darwin 22.5.0 (posix)
+[2023-08-25 10:52:36] [INFO    ] discord_bot: -------------------

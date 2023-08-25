@@ -7,32 +7,21 @@ import io
 from logic.chess_handler import ChessHandler
 
 # dropdown formatting
-class Select(discord.ui.Select):
-    def __init__(self):
-        options = [
-            discord.SelectOption(label="test option 1", description="test"),
-            discord.SelectOption(label="test option 2", description="test"),
-            discord.SelectOption(label="test option 3", description="test"),
-            discord.SelectOption(label="test option 4", description="test")
-        ]
+class DropdownMenu(discord.ui.Select):
+    def __init__(self, options) -> None:
         super().__init__(placeholder="Select an option", max_values=1, min_values=1, options=options)
 
-    async def callback(self, interaction: discord.Interaction):
+    async def callback(self, interaction: discord.Interaction) -> None:
         await interaction.response.send_message(content = f"Selected option {self.values}", ephemeral = True)
 
-# class that handles dropdown logic
-class SelectView(discord.ui.View):
-    def __init__(self, *, timeout = 180):
-        super().__init__(timeout=timeout)
-        self.add_item(Select())
-
-class ChessMatch(commands.Cog):
+class ChessCommands(commands.Cog):
     def __init__(self, client):
         self.client = client
         self.chess_handler = ChessHandler()
 
     @commands.command()
-    async def display_board(self, ctx):
+    async def display_board(self, ctx) -> None:
+        print("running function")
         # gets raw png data from the chess_handler class
         image = self.chess_handler.get_board_png()
 
@@ -52,14 +41,15 @@ class ChessMatch(commands.Cog):
         embed_message.set_image(url='attachment://board_img.png')
         embed_message.set_author(name = f'Requested by {ctx.author.name}', icon_url = ctx.author.avatar)
         
-        await ctx.send(embed=embed_message, file=discord_file)
-
-    # temporary test command
-    @commands.command()
-    async def test_dropdown(self, ctx):
-        await ctx.send("Test", view=SelectView())
+        # create dropdown view
+        options = [discord.SelectOption(label=move) for move in self.chess_handler.legal_moves_str()]
+        dropdown = DropdownMenu(options)
+        view = discord.ui.View()
+        view.add_item(dropdown)
+        
+        await ctx.send(embed=embed_message, file=discord_file, view=view)
 
 # add cog extension to "client" (the bot)
 # NOTE: THIS CODE RUNS FROM THE DIRECTORY THAT "main.py" IS IN
 async def setup(client):
-    await client.add_cog(ChessMatch(client))
+    await client.add_cog(ChessCommands(client))

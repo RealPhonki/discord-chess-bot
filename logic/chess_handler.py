@@ -49,7 +49,7 @@ class ChessHandler():
                 x1, y1 = col * self.square_size, row * self.square_size
                 x2, y2 = x1 + self.square_size, y1 + self.square_size
                 color = self.board_color[0] if (row + col) % 2 == 0 else self.board_color[1]
-                draw.rectangle([x1, y1, x2, y2], fill = color)
+                draw.rectangle([x1, y1, x2, y2], fill = tuple(color))
         
         return image
 
@@ -73,3 +73,7 @@ class ChessHandler():
             image.paste(piece_image, position, piece_image)
         
         return image
+
+    def legal_moves_str(self) -> str:
+        """ Returns a string that contains all of the legal moves """
+        return [self.board.san(move) for move in list(self.board.legal_moves)]
