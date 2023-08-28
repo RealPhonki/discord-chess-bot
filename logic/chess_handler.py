@@ -22,8 +22,9 @@ class ChessHandler():
     }
     
     def __init__(self) -> None:
+        """ This class does not have parameters """
         self.config = self.get_config
-        self.board = chess.Board()
+        self.board = chess.Board("r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R")
         self.square_size = self.config["square_size"]
         self.board_size = self.square_size * 8
         self.board_color = self.config["board_themes"]["theme_1"]
@@ -65,7 +66,7 @@ class ChessHandler():
                 continue
 
             x = chess.square_file(square) * self.square_size
-            y = chess.square_rank(square) * self.square_size
+            y = (7 - chess.square_rank(square)) * self.square_size
 
             position = (x, y)
             piece_image = self.piece_images[piece.symbol()]
@@ -74,6 +75,8 @@ class ChessHandler():
         
         return image
 
+    @cached_property
     def legal_moves_str(self) -> str:
         """ Returns a string that contains all of the legal moves """
         return [self.board.san(move) for move in list(self.board.legal_moves)]
+    
