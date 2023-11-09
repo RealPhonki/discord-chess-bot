@@ -73,7 +73,7 @@ class ChessCommands(commands.Cog):
         view = self.legalmove_dropdown(ctx)
         await ctx.send("```Generated dropdown view```")
 
-        try:
+        try: 
             await ctx.send(embed=embed, file=discord_file, view=view)
             await ctx.send("```Message sent successfully```")
         except:

@@ -29,7 +29,7 @@ class ChessHandler():
         self.board_size = self.square_size * 8
         self.board_color = self.config["board_themes"]["theme_1"]
 
-    @ cached_property
+    @cached_property
     def get_config(self) -> dict:
         """ Load json data and return it"""
         if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/chess_config.json"):
